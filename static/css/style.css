@@ -1,4 +1,9 @@
 /* General Styles */
+html, body {
+    height: 100%; /* Ensure the page takes up the full viewport height */
+    margin: 0;
+}
+
 body {
     font-family: 'Roboto', sans-serif;
     background-color: #f8f9fa; 
@@ -32,6 +37,12 @@ body {
 
 /* Footer */
 footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+footer {
     background-color: #004080; /* Match navbar */
     color: #ffffff;
     font-size: 14px;
@@ -46,3 +57,4 @@ footer a {
 footer a:hover {
     text-decoration: underline;
 }
+

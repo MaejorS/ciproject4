@@ -1,6 +1,5 @@
 /* General Styles */
 html, body {
-    height: 100%; /* Ensure the page takes up the full viewport height */
     margin: 0;
 }
 
@@ -10,6 +9,9 @@ body {
     color: #333; 
     margin: 0;
     padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Navbar */
@@ -37,16 +39,11 @@ body {
 
 /* Footer */
 footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-}
-
-footer {
     background-color: #004080; /* Match navbar */
     color: #ffffff;
     font-size: 14px;
     padding: 10px 0;
+    text-align: cneter;
 }
 
 footer a {

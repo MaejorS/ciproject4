@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+<!-- Main Header Section -->
+<div class="masthead">
+    <div class="container">
+        <div class="row">
+            <!-- Text Section -->
+            <div class="col-md-6">
+                <h1 class="article-title">{{ post.title }}</h1>
+                <p class="article-details">{{ post.author }} | {{ post.created_on }}</p>
+            </div>
+
+            <!-- Image Section -->
+            <div class="col-md-6 d-none d-md-block">
+                <img src="{% static 'images/scatteredmindunsplash.jpg' %}" class="img-fluid" alt="picture of rocks stacked and some scattered">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Post Content Section -->
+<div class="container mt-4">
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <p class="card-text">{{ post.content | safe }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

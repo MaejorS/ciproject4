@@ -15,7 +15,7 @@
                 <div class="card-body">
                     <h5 class="card-title text-primary">{{ post.title }}</h5>
                     <p class="card-text text-muted small">Published on: {{ post.created_on }}</p>
-                    <a href="#" class="btn btn-outline-primary btn-sm">Read More</a>
+                    <a href="{% url 'article_detail' post.slug %}" class="post-link btn btn-outline-primary btn-sm">Read More</a>
                 </div>
             </div>
         </div>

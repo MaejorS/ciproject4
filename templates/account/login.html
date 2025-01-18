@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+{% load account socialaccount %}
+
+{% block head_title %}{% trans "Sign In" %}{% endblock %}
+
+{% block content %}
+<div class="login-page">
+    <div class="login-wrapper">
+        <div class="login-header">
+            <h2>{% trans "Sign In" %}</h2>
+            <p>{% blocktrans %}Hey! Nice to see you again! If you haven't already, don't forget to <a href="{{ signup_url }}" class="signup-link">sign up here</a>.{% endblocktrans %}</p>
+        </div>
+        <div class="login-form-container">
+            <form class="login-form" method="POST" action="{% url 'account_login' %}">
+                {% csrf_token %}
+                <div class="form-fields">
+                    {{ form.as_p }}
+                </div>
+                {% if redirect_field_value %}
+                    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                {% endif %}
+                <div class="form-actions">
+                    <button type="submit" class="submit-btn">{% trans "Sign In" %}</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

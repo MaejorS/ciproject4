@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="subscribe-form">
+    <h2>Subscribe to Our Newsletter</h2>
+    <p>We know you like unusual news. For the most up to date articles, subscribe to our newsletter</p>
+    <form method="post" novalidate>
+        {% csrf_token %}
+        {{ form|crispy }}
+        button type="submit" class="btn btn-primary">Subscribe</button>
+    </form>
+</div>
+{% endblock %}

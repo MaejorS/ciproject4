@@ -31,7 +31,9 @@ def article_detail(request, slug):
     return render(
         request,
         "article_detail.html",
-        {"post": post},
+        {
+        "post": post,
         "comments": comments,
         "comment_count": comment_count,
+        }
     )

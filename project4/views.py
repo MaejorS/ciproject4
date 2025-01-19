@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from django.contrib import messages
 from .models import Post
-from .forms import CommentForm
+from .forms import CommentForm, SubscribeForm
 
 # Create your views here.
 class PostList(generic.ListView):
@@ -13,12 +13,12 @@ class PostList(generic.ListView):
 
 def article_detail(request, slug):
     """
-    Display an individual :model:`blog.Post`.
+    Display an individual :model:`project4.Post`.
 
     **Context**
 
     ``post``
-        An instance of :model:`blog.Post`.
+        An instance of :model:`project4.Post`.
 
     **Template:**
 
@@ -52,5 +52,38 @@ def article_detail(request, slug):
         "comments": comments,
         "comment_count": comment_count,
         "comment_form": comment_form,
+        }
+    )
+
+def subscribe(request):
+    """
+    Handles the subscription form submission.
+
+    **Context**
+
+    ``form``
+        An instance of :form:`project4.SubscribeForm`.
+
+    **Template:**
+
+    :template:`subscribe.html`
+    """
+
+    if request.method == "POST":
+        form = SubscribeForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Thank you for subscribing!")
+            return redirect("subscribe")
+        else:
+            messages.error(request, "There was an error with your submission. Please try again.")
+    else:
+        form = SubscribeForm()
+
+    return render(
+        request,
+        "subscribe.html",
+        {
+        "form": form,
         }
     )

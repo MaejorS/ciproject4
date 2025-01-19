@@ -65,10 +65,11 @@
 
     <!-- Main Content -->
     <main class="container py-4">
-        {% block content %}
-        <h1>Welcome to Mind. Body. Boggle</h1>
-        <p>News for the Ultra Curious</p>
-        {% endblock content %}
+        {% if user.is_authenticated %}
+        <p class="text-end m-3">You are logged in as {{ user }}</p>
+        {% else %}
+        <p class="text-end m-3">You are not logged in</p>
+        {% endif %}
     </main>
 
     <!-- Footer -->

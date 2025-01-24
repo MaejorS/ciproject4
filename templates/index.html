@@ -18,8 +18,8 @@
                     <a href="{% url 'article_detail' post.slug %}" class="post-link btn btn-outline-primary btn-sm">Read More</a>
                     {% if user.is_superuser %}
                     <hr>
-                    <a href="{% url 'post_edit' post.pk %}" class="btn btn-warning btn-sm">Edit</a>
-                    <form method="post" action="{% url 'post_delete' post.pk %}" style="display:inline;">
+                    <a href="{% url 'post_edit' post.slug %}" class="btn btn-warning btn-sm">Edit</a>
+                    <form method="post" action="{% url 'post_delete' post.slug %}" style="display:inline;">
                         {% csrf_token %}
                         <button type="submit" class="btn btn-danger btn-sm">Delete</button>
                     </form>

@@ -29,6 +29,18 @@
             <div class="card">
                 <div class="card-body">
                     <p class="card-text">{{ post.content | safe }}</p>
+
+                    {% if user.is_superuser %}
+                    <hr>
+                    <div class="text-end">
+                        <a href="{% url 'post_edit' post.pk %}" class="btn btn-warning btn-sm">Edit</a>
+                        <form method="post" action="{% url 'post_delete' post.pk %}" style="display:inline;">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-danger btn-sm">Delete</button> {# Delete button #}
+                        </form>
+                    </div>
+                    {% endif %}
+                    
                 </div>
             </div>
         </div>

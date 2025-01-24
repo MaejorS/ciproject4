@@ -95,3 +95,24 @@ footer i {
 footer i:hover {
     color: #ffd700; /* Gold hover effect for social icons */
 }
+
+/*Add styles to ensure the content is styled properly in content*/
+
+    .post-content {
+        font-family: 'Arial', sans-serif;
+        font-size: 1.2rem;
+        line-height: 1.6;
+    }
+
+    .post-content h1, .post-content h2, .post-content h3 {
+        color: #2c3e50;
+    }
+
+    .post-content p {
+        margin-bottom: 1.5rem;
+    }
+
+    .post-content ul {
+        list-style: square;
+    }
+</style>

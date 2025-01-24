@@ -2,6 +2,7 @@ from django.contrib.auth.decorators import login_required, user_passes_test
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.views import generic
 from django.contrib import messages
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponseRedirect
 from django.views.generic.edit import CreateView
 from django.urls import reverse_lazy
@@ -131,18 +132,18 @@ def comment_delete(request, slug, comment_id):
     return HttpResponseRedirect(reverse('article_detail', args=[slug]))
 
 
-# Helper function to restrict access to superusers
-def is_superuser(user):
-    return user.is_superuser
-
 @login_required
-@user_passes_test(is_superuser)
 def post_edit(request, slug):
     """
     View to edit a post.
-    Accessible only to superusers.
+    Accessible only to authors and superusers.
     """
     post = get_object_or_404(Post, slug=slug)
+
+    # Check if the logged-in user is the author or a superuser
+    if request.user != post.author and not request.user.is_superuser:
+        messages.error(request, "You do not have permission to edit this post.")
+        return redirect('article_detail', slug=slug)  # Redirect unauthorized user to the post detail page
 
     if request.method == 'POST':
         form = PostForm(request.POST, instance=post)
@@ -157,27 +158,31 @@ def post_edit(request, slug):
 
     return render(request, 'post_edit.html', {'form': form, 'post': post})
 
+
+@login_required
 def post_delete(request, slug):
     """
     Handle the deletion of a post.
-    Only accessible by superusers.
+    Only accessible by superusers or the author of the post.
     """
     post = get_object_or_404(Post, slug=slug)
 
+    # Check if the logged-in user is the author or a superuser
     if post.author == request.user or request.user.is_superuser:
         post.delete()
         messages.success(request, 'Post deleted successfully.')
-        return redirect('home')
+        return redirect('home')  # Redirect after successful deletion
     else:
         messages.error(request, 'You do not have permission to delete this post.')
         return redirect('article_detail', slug=slug)
 
-class PostCreateView(CreateView):
-    model = Post  # Tells the CreateView to use the Post model
-    template_name = 'post_create.html'  # Path to your template
-    fields = ['title', 'slug', 'content', 'status', 'excerpt']  # Fields shown in the form
-    success_url = reverse_lazy('post_list')  # Redirect after success
+class PostCreateView(LoginRequiredMixin, CreateView):
+    model = Post
+    template_name = 'post_create.html'
+    fields = ['title', 'slug', 'content', 'status', 'excerpt']
+    success_url = reverse_lazy('home')
 
     def form_valid(self, form):
-        form.instance.author = self.request.user  # Automatically set the author
+        # Automatically set the author to the logged-in user
+        form.instance.author = self.request.user
         return super().form_valid(form)

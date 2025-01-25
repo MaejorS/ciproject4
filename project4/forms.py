@@ -18,7 +18,7 @@ class SubscribeForm(forms.ModelForm):
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ['title', 'slug', 'author', 'content', 'status', 'excerpt']
+        fields = ['title', 'slug', 'content', 'status', 'excerpt']
         widgets = {
             'title': forms.TextInput(attrs={'class': 'form-control'}),
             'slug': forms.TextInput(attrs={'class': 'form-control'}),

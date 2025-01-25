@@ -169,6 +169,8 @@ Any remaining open issues can be tracked [here](https://www.github.com/MaejorS/c
 | --- | --- |
 | The thumbnails are not sizing in a uniform fashion. Was unable to fix in time before submission. | ![screenshot](documentation/issues/nopicpost.png) |
 | ran out of time when trying to apply images to mobile site. would like images on mobile devices in future. | ![screenshot](documentation/issues/unevenpost.png) |
+| Need to add featured image to front end as it can only be added via admin panel. Otherwise, the default image is placed. | ![screenshot](documentation/issues/nofeatureimage.png) |
+| Authors need to use html if they want to format text from the front end. Need to implement text editor. | ![screenshot](documentation/issues/htmlpost.png) |
 
 > [!IMPORTANT]
 > There are no remaining bugs that I am aware of, though, even after thorough testing, I cannot rule out the possibility.

@@ -181,7 +181,7 @@ def post_delete(request, slug):
     if post.author == request.user or request.user.is_superuser:
         post.delete()
         messages.success(request, 'Post deleted successfully.')
-        return redirect('home')  # Redirect after successful deletion
+        return redirect('home')
     else:
         messages.error(request,
                        'You do not have permission to delete this post.')

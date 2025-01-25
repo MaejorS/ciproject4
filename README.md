@@ -199,8 +199,6 @@ Entity Relationship Diagrams (ERD) help to visualize database architecture befor
 
 ![screenshot](documentation/erd/erd.jpg)
 
-**NOTE**: A Markdown Preview tool doesn't show the interactive ERD; you must first commit/push the code to your GitHub repository in order to see it live in action.
-
 I have used `Mermaid` to generate an interactive ERD of my project.
 
 ```mermaid

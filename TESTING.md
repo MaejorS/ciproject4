@@ -3,9 +3,7 @@
 > [!NOTE]
 > Return back to the [README.md](README.md) file.
 
-
 ## Code Validation
-
 
 ### HTML
 
@@ -17,7 +15,6 @@ I have used the recommended [HTML W3C Validator](https://validator.w3.org) to va
 | templates | [index.html](https://github.com/MaejorS/ciproject4/blob/main/templates/index.html) | ![screenshot](documentation/validation/html-templates-index.jpg) | Notes login and logout pages also cleared |
 | templates | [subscribe.html](https://github.com/MaejorS/ciproject4/blob/main/templates/subscribe.html) | ![screenshot](documentation/validation/html-templates-subscribe.jpg) | Notes (if applicable) |
 
-
 ### CSS
 
 I have used the recommended [CSS Jigsaw Validator](https://jigsaw.w3.org/css-validator) to validate all of my CSS files.
@@ -25,8 +22,6 @@ I have used the recommended [CSS Jigsaw Validator](https://jigsaw.w3.org/css-val
 | Directory | File | URL | Screenshot | Notes |
 | --- | --- | --- | --- | --- |
 | my_project4 | [style.css](https://github.com/MaejorS/ciproject4/blob/main/my_project4/static/style.css) | Link (if applicable) | ![screenshot](documentation/validation/css-my_project4-style.jpg) |
-
-
 
 ### JavaScript
 
@@ -36,7 +31,6 @@ I have used the recommended [JShint Validator](https://jshint.com) to validate a
 | --- | --- | --- | --- | --- |
 | static | [article.js](https://github.com/MaejorS/ciproject4/blob/main/static/js/article.js) | N/A | ![screenshot](documentation/validation/js-static-article.jpg) |
 | static | [comments.js](https://github.com/MaejorS/ciproject4/blob/main/static/js/comments.js) | N/A | ![screenshot](documentation/validation/js-static-comments.jpg) |
-
 
 ### Python
 
@@ -70,7 +64,6 @@ I have used the recommended [PEP8 CI Python Linter](https://pep8ci.herokuapp.com
 | project4 | [urls.py](https://github.com/MaejorS/ciproject4/blob/main/project4/urls.py) | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/MaejorS/ciproject4/main/project4/urls.py) | ![screenshot](documentation/validation/py-project4-urls.png) | NA |
 | project4 | [views.py](https://github.com/MaejorS/ciproject4/blob/main/project4/views.py) | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/MaejorS/ciproject4/main/project4/views.py) | ![screenshot](documentation/validation/py-project4-views.png) | NA |
 
-
 ## Responsiveness
 
 I've tested my deployed project to check for responsiveness issues. Note: Blog posts can also be created, updated and deleted in admin panel. Only tested front end responsiveness.
@@ -83,7 +76,6 @@ I've tested my deployed project to check for responsiveness issues. Note: Blog p
 | Add Blog | ![screenshot](documentation/responsiveness/mobile-add-blog.png) | ![screenshot](documentation/responsiveness/tablet-add-blog.png) | ![screenshot](documentation/responsiveness/desktop-add-blog.png) | Works as expected |
 | Edit Blog | ![screenshot](documentation/responsiveness/mobile-edit-blog.png) | ![screenshot](documentation/responsiveness/tablet-edit-blog.png) | ![screenshot](documentation/responsiveness/desktop-edit-blog.png) | Works as expected |
 | Blog Post | ![screenshot](documentation/responsiveness/mobile-blog-post.png) | ![screenshot](documentation/responsiveness/tablet-blog-post.png) | ![screenshot](documentation/responsiveness/desktop-blog-post.png) | Works as expected |
-
 
 ## Browser Compatibility
 
@@ -98,9 +90,7 @@ I've tested my deployed project on multiple browsers to check for compatibility 
 | Edit Blog | ![screenshot](documentation/browsers/chrome-edit-blog.png) | ![screenshot](documentation/browsers/firefox-edit-blog.png) | ![screenshot](documentation/browsers/edge-edit-blog.png) | Works as expected |
 | Blog Post | ![screenshot](documentation/browsers/chrome-blog-post.png) | ![screenshot](documentation/browsers/firefox-blog-post.png) | ![screenshot](documentation/browsers/edge-blog-post.png) | Works as expected |
 
-
 ## Defensive Programming
-
 
 Defensive programming was manually tested with the below user acceptance testing:
 
@@ -120,11 +110,9 @@ Defensive programming was manually tested with the below user acceptance testing
 | | Feature is expected to allow users to delete their own comments. | Deleted personal comments. | Comments were removed as expected. | ![screenshot](documentation/features/visitordeletecomment.jpg) |
 | Guest Features | Feature is expected to allow guest users to read blog posts without registering. | Opened blog posts as a guest user. | Blog posts were fully accessible without logging in. | ![screenshot](documentation/features/viewpost.jpg) |
 | | Feature is expected to display the names of other commenters on posts. | Checked the names of commenters on posts as a guest user. | Commenter names were displayed as expected. | ![screenshot](documentation/features/notloggedin.png) |
-| | Feature is expected to block standard users from brute-forcing admin pages. | Attempted to navigate to admin-only pages by manipulating the URL (e.g., `/admin`). | Access was blocked, and a message was displayed showing denied access. | ![screenshot](documentation/defensive/brute-force.png) |
-| 404 Error Page | Feature is expected to display a 404 error page for non-existent pages. | Navigated to an invalid URL (e.g., `/test`). | A custom 404 error page was displayed as expected. | ![screenshot](documentation/defensive/404.png) |
+| 404 Error Page | Feature is expected to display a 404 error page for non-existent pages. | Navigated to an invalid URL (e.g., `/test`). | A custom 404 error page was displayed as expected. | ![screenshot](documentation/defensive/notfound.png) |
 
 ## User Story Testing
-
 
 | Target | Expectation | Outcome | Screenshot |
 | --- | --- | --- | --- |
@@ -144,7 +132,6 @@ Defensive programming was manually tested with the below user acceptance testing
 | As a guest user | I would like to read blog posts without registering | so that I can enjoy the content without needing to log in. | ![screenshot](documentation/features/nologin.png) |
 | As a guest user | I would like to register for an account | so that I can participate in the community by leaving comments on posts. | ![screenshot](documentation/features/visitorregister.png) |
 | As a guest user | I would like to see the names of other commenters on posts | so that I can get a sense of community interaction before registering. | ![screenshot](documentation/features/notloggedin.png) |
-
 
 ## Bugs
 
@@ -167,7 +154,6 @@ couldn’t get string method to work. found out spacing was incorrect
 <br>
 
 ![screenshot](documentation/bugs/string_method_sytax_error.jpg)
-
 
 ### Unfixed Bugs
 

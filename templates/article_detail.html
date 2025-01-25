@@ -12,8 +12,9 @@
                 <h1 class="article-title">{{ post.title }}</h1>
                 <p class="article-details">{{ post.author }} | {{ post.created_on }}</p>
             </div>
-
-            <!-- Image Section -->
+        </div>
+    </div>
+</div>          <!-- Image Section -->
             <div class="col-md-6 d-none d-md-block">
                 {% if post.featured_image %}
                 <img src="{{ post.featured_image.url }}" class="img-fluid" alt="{{ post.title }}">

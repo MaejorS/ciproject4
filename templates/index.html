@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
 
@@ -18,6 +19,13 @@
         {% for post in post_list %}
         <div class="col-md-6 col-lg-4">
             <div class="card h-100 shadow-sm">
+                <div class="image-container">
+                    {% if "placeholder" in post.featured_image.url %}
+                    <img class="card-img-top" src="{% static 'images/default.jpg' %}" alt="placeholder image">
+                    {% else %}
+                    <img class="card-img-top" src="{{ post.featured_image.url }}" alt="{{ post.title }}">
+                    {% endif %}
+                </div>
                 <div class="card-header bg-dark text-white text-center">
                     <p class="mb-0">Author: {{ post.author }}</p>
                 </div>
@@ -71,7 +79,8 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <a id="deleteConfirm" href="#" class="btn btn-danger">Delete</a> <!-- The JS will dynamically update this -->
+                <a id="deleteConfirm" href="#" class="btn btn-danger">Delete</a>
+                <!-- The JS will dynamically update this -->
             </div>
         </div>
     </div>
@@ -92,7 +101,7 @@
             deleteMessage.textContent =
                 "Are you sure you want to delete this post? This action cannot be undone.";
             deleteConfirm.setAttribute('href',
-            url); // Set the href of the delete button to the post delete URL
+                url); // Set the href of the delete button to the post delete URL
         });
     });
 </script>

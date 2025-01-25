@@ -2,6 +2,7 @@ from django.contrib import admin
 from .models import Post, Comment, Subscriber
 from django_summernote.admin import SummernoteModelAdmin
 
+
 @admin.register(Post)
 class PostAdmin(SummernoteModelAdmin):
 
@@ -11,11 +12,14 @@ class PostAdmin(SummernoteModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
     summernote_fields = ('content',)
 
+
 @admin.register(Subscriber)
 class SubscriberAdmin(admin.ModelAdmin):
     list_display = ('email', 'name', 'is_active', 'subscribed_on')
     search_fields = ('email', 'name')
     list_filter = ('is_active', 'subscribed_on')
 
+
 # Register your models here.
 admin.site.register(Comment)
+

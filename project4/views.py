@@ -9,8 +9,10 @@ from django.urls import reverse_lazy
 from .models import Post, Comment
 from .forms import CommentForm, SubscribeForm, PostForm
 
+
 # Create your views here.
 class PostList(generic.ListView):
+
     queryset = Post.objects.filter(status=1)
     template_name = "index.html"
     paginate_by = 6
@@ -53,12 +55,13 @@ def article_detail(request, slug):
         request,
         "article_detail.html",
         {
-        "post": post,
-        "comments": comments,
-        "comment_count": comment_count,
-        "comment_form": comment_form,
+            "post": post,
+            "comments": comments,
+            "comment_count": comment_count,
+            "comment_form": comment_form,
         }
     )
+
 
 def subscribe(request):
     """
@@ -81,7 +84,7 @@ def subscribe(request):
             messages.success(request, "Thank you for subscribing!")
             return redirect("subscribe")
         else:
-            messages.error(request, "There was an error with your submission. Please try again.")
+            messages.error(request, "Submission error.Try again.")
     else:
         form = SubscribeForm()
 
@@ -89,9 +92,10 @@ def subscribe(request):
         request,
         "subscribe.html",
         {
-        "form": form,
+            "form": form,
         }
     )
+
 
 def comment_edit(request, slug, comment_id):
     """
@@ -111,9 +115,11 @@ def comment_edit(request, slug, comment_id):
             comment.save()
             messages.add_message(request, messages.SUCCESS, 'Comment Updated!')
         else:
-            messages.add_message(request, messages.ERROR, 'Error updating comment!')
+            messages.add_message(request,
+                                 messages.ERROR, 'Error updating comment!')
 
     return HttpResponseRedirect(reverse('article_detail', args=[slug]))
+
 
 def comment_delete(request, slug, comment_id):
     """
@@ -127,7 +133,9 @@ def comment_delete(request, slug, comment_id):
         comment.delete()
         messages.add_message(request, messages.SUCCESS, 'Comment deleted!')
     else:
-        messages.add_message(request, messages.ERROR, 'You can only delete your own comments!')
+        messages.add_message(request,
+                             messages.ERROR,
+                             'You can only delete your own comments!')
 
     return HttpResponseRedirect(reverse('article_detail', args=[slug]))
 
@@ -142,8 +150,9 @@ def post_edit(request, slug):
 
     # Check if the logged-in user is the author or a superuser
     if request.user != post.author and not request.user.is_superuser:
-        messages.error(request, "You do not have permission to edit this post.")
-        return redirect('article_detail', slug=slug)  # Redirect unauthorized user to the post detail page
+        messages.error(request,
+                       "You do not have permission to edit this post.")
+        return redirect('article_detail', slug=slug)
 
     if request.method == 'POST':
         form = PostForm(request.POST, instance=post)
@@ -152,7 +161,8 @@ def post_edit(request, slug):
             messages.success(request, 'Post updated successfully!')
             return redirect('article_detail', slug=post.slug)
         else:
-            messages.error(request, 'Error updating the post. Please check the form.')
+            messages.error(request,
+                           'Error updating the post. Please check the form.')
     else:
         form = PostForm(instance=post)
 
@@ -173,8 +183,10 @@ def post_delete(request, slug):
         messages.success(request, 'Post deleted successfully.')
         return redirect('home')  # Redirect after successful deletion
     else:
-        messages.error(request, 'You do not have permission to delete this post.')
+        messages.error(request,
+                       'You do not have permission to delete this post.')
         return redirect('article_detail', slug=slug)
+
 
 class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post

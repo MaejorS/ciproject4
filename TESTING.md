@@ -21,7 +21,7 @@ I have used the recommended [CSS Jigsaw Validator](https://jigsaw.w3.org/css-val
 
 | Directory | File | URL | Screenshot | Notes |
 | --- | --- | --- | --- | --- |
-| my_project4 | [style.css](https://github.com/MaejorS/ciproject4/blob/main/my_project4/static/style.css) | Link (if applicable) | ![screenshot](documentation/validation/css-my_project4-style.jpg) |
+| my_project4 | [style.css](https://github.com/MaejorS/ciproject4/blob/main/my_project4/static/style.css) | NA | ![screenshot](documentation/validation/css-my_project4-style.jpg) |
 
 ### JavaScript
 
@@ -34,7 +34,7 @@ I have used the recommended [JShint Validator](https://jshint.com) to validate a
 
 ### Python
 
-The Django `settings.py` file comes with 4 lines that are quite long, and will throw the `E501 line too long` error. This is default behavior, but can be fixed by adding the "`  # noqa`" comment at the end of those lines.
+The Django `settings.py` file comes with 4 lines that are quite long, and will throw the `E501 line too long` error. This is default behavior, but can be fixed by adding the "`  # noqa`" comment at the end of those lines. I cleared errors first, then took screenshot, but kept the lines as is in the final code. Did not use the comments.
 
 ```python
 AUTH_PASSWORD_VALIDATORS = [
@@ -167,8 +167,8 @@ Any remaining open issues can be tracked [here](https://www.github.com/MaejorS/c
 
 | Issue | Screenshot |
 | --- | --- |
-| The thumbnails are not sizing in a uniform fashion. Was unable to fix in time before submission. | ![screenshot](documentation/issues/nopicpost.png) |
-| ran out of time when trying to apply images to mobile site. would like images on mobile devices in future. | ![screenshot](documentation/issues/unevenpost.png) |
+| The thumbnails are not sizing in a uniform fashion. Was unable to fix in time before submission. | ![screenshot](documentation/issues/unevenpost.png) |
+| ran out of time when trying to apply images to mobile site. would like images on mobile devices in future. | ![screenshot](documentation/issues/nopicpost.png) |
 | Need to add featured image to front end as it can only be added via admin panel. Otherwise, the default image is placed. | ![screenshot](documentation/issues/nofeatureimage.png) |
 | Authors need to use html if they want to format text from the front end. Need to implement text editor. | ![screenshot](documentation/issues/htmlpost.png) |
 

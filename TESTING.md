@@ -117,7 +117,7 @@ Defensive programming was manually tested with the below user acceptance testing
 | Target | Expectation | Outcome | Screenshot |
 | --- | --- | --- | --- |
 | As a blog owner | I would like to create new blog posts with a title, featured image, and content | so that I can share my experiences with my audience. | ![screenshot](documentation/features/adminaddpost.jpg) |
-| As a blog owner | I would like to update existing blog posts | so that I can correct or add new information to my previous stories. | ![screenshot](documentation/features/adminupdatepost.jpg) |
+| As a blog owner | I would like to update existing blog posts | so that I can correct or add new information to my previous stories. | ![screenshot](documentation/features/updatearticlepost.png) |
 | As a blog owner | I would like to delete blog posts | so that I can remove outdated or irrelevant content from my blog. | ![screenshot](documentation/features/admindeletepost.jpg) |
 | As a blog owner | I would like to retrieve a list of all my published blog posts | so that I can manage them from a central dashboard. | ![screenshot](documentation/features/filter-post-list.png) |
 | As a blog owner | I would like to review comments before they are published | so that I can filter out spam or inappropriate content. | ![screenshot](documentation/features/review-comments.png) |
